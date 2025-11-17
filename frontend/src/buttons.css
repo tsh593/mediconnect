@@ -1,0 +1,193 @@
+/* Modern Buttons */
+.btn {
+  padding: 0.8rem 1.8rem;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  color: white;
+  box-shadow: 0 4px 15px rgba(138, 79, 255, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(138, 79, 255, 0.4);
+}
+
+.btn-secondary {
+  background: var(--secondary-color);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: #5B8A7D;
+}
+
+
+/* Feature Buttons Container */
+.feature-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+/* Base Button Styles */
+.feature-btn {
+  padding: 1.5rem;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  position: relative;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); 
+}
+
+/* Interactive Elements */
+.feature-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.feature-btn:hover::before {
+  opacity: 1;
+}
+
+/* Emergency Alert Button */
+.emergency-btn {
+  background: linear-gradient(135deg, #ff4d4d 0%, #cc0000 100%);
+  color: white;
+  animation: subtle-pulse 2s infinite;
+}
+
+.emergency-btn .icon {
+  background: rgba(255,255,255,0.2);
+  padding: 0.5rem;
+  border-radius: 50%;
+}
+
+/* Book Specialist Button */
+.specialist-btn {
+  background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+  color: #2d3748;
+}
+
+/* Learning Hub Button */
+.learning-btn {
+  background: linear-gradient(135deg, #c6f6d5 0%, #93e5ab 100%);
+  color: #2d3748;
+}
+
+/* Case Discussions Button */
+.discussion-btn {
+  background: linear-gradient(135deg, #bfdbfe 0%, #93c5fd 100%);
+  color: #2d3748;
+}
+
+/* Content Styling */
+.btn-content {
+  position: relative;
+  z-index: 1;
+}
+
+.audience-tag {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  opacity: 0.9;
+}
+
+.btn-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.btn-description {
+  font-size: 0.875rem;
+  opacity: 0.9;
+  margin-bottom: 1rem;
+  flex-grow: 1; /* Allows description to grow and push button down */
+}
+
+.btn-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background: rgba(255,255,255,0.15);
+  transition: all 0.2s ease;
+  margin-top: 60px; /* Pushes button to bottom */
+}
+
+.btn-action-a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background: rgba(255,255,255,0.15);
+  transition: all 0.2s ease;
+  margin-top: 3px; /* Pushes button to bottom */
+
+}
+
+.btn-action-b {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background: rgba(255,255,255,0.15);
+  transition: all 0.2s ease;
+  margin-top: 40px; /* Pushes button to bottom */
+}
+
+.btn-action-c {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background: rgba(255,255,255,0.15);
+  transition: all 0.2s ease;
+  margin-top: 62px; /* Pushes button to bottom */
+}
+/* Button action aligned to bottom */
+.btn-action-container {
+  margin-top: auto; /* Pushes button to bottom */
+  padding-top: 1rem; /* Space above button */
+}
+
+/* Interactive Animations */
+.feature-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.feature-btn:hover .btn-action {
+  background: rgba(255,255,255,0.25);
+}
+
+@keyframes subtle-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.01); }
+}

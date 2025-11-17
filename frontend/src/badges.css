@@ -1,0 +1,12 @@
+/* User Role Badges */
+.role-badge {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin: 0.5rem 0;
+}
+
+.doctor-badge { background: rgba(138, 79, 255, 0.1); color: var(--primary-color); }
+.student-badge { background: rgba(108, 157, 143, 0.1); color: var(--secondary-color); }

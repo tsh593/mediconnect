@@ -1,0 +1,15 @@
+/* Interactive Elements */
+.search-bar {
+  padding: 0.8rem 1.5rem;
+  border: 2px solid #eee;
+  border-radius: 30px;
+  width: 100%;
+  max-width: 400px;
+  transition: all 0.3s ease;
+}
+
+.search-bar:focus {
+  border-color: var(--accent-color);
+  outline: none;
+  box-shadow: 0 0 10px rgba(178, 228, 213, 0.3);
+}

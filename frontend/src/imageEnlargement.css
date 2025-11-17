@@ -1,0 +1,309 @@
+/* Image Enlargement Styles */
+.message-image-container {
+    position: relative;
+    margin: 8px 0;
+    max-width: 300px;
+}
+
+.message-image {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.message-image:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary-color);
+}
+
+.message-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.message-image:hover img {
+    transform: scale(1.05);
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.9) 0%, rgba(99, 102, 241, 0.8) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.message-image:hover .image-overlay {
+    opacity: 1;
+}
+
+.enlarge-icon {
+    font-size: 24px;
+    margin-bottom: 8px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.image-overlay span {
+    font-size: 14px;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Enlarged Image Modal */
+.enlarged-image-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    backdrop-filter: blur(10px);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.enlarged-image-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    background: #1a1a1a;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    animation: scaleIn 0.3s ease;
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.close-enlarged-image {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.close-enlarged-image:hover {
+    background: rgba(220, 38, 38, 0.8);
+    transform: scale(1.1);
+}
+
+.image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 40px 40px;
+    max-height: calc(90vh - 100px);
+}
+
+.image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.image-actions {
+    display: flex;
+    gap: 12px;
+    padding: 20px;
+    background: #2d2d2d;
+    border-top: 1px solid #444;
+    justify-content: center;
+}
+
+.image-actions .btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.image-actions .btn-primary {
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    color: white;
+    border: none;
+}
+
+.image-actions .btn-primary:hover {
+    background: linear-gradient(135deg, #4338ca, #6d28d9);
+    transform: translateY(-2px);
+}
+
+.image-actions .btn-secondary {
+    background: #4b5563;
+    color: white;
+    border: none;
+}
+
+.image-actions .btn-secondary:hover {
+    background: #374151;
+    transform: translateY(-2px);
+}
+
+/* Medical Image Specific Styles */
+.medical-image-notes {
+    padding: 15px;
+    background: #1e293b;
+    border-top: 1px solid #334155;
+    color: #e2e8f0;
+    font-size: 14px;
+}
+
+.medical-image-notes h4 {
+    margin: 0 0 8px 0;
+    color: #60a5fa;
+    font-size: 16px;
+}
+
+.medical-image-notes p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Responsive Design for Image Modal */
+@media (max-width: 768px) {
+    .enlarged-image-content {
+        max-width: 95vw;
+        max-height: 95vh;
+        margin: 20px;
+    }
+
+    .image-container {
+        padding: 50px 20px 20px;
+        max-height: calc(95vh - 120px);
+    }
+
+    .image-actions {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .image-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .close-enlarged-image {
+        top: 10px;
+        right: 10px;
+        width: 35px;
+        height: 35px;
+    }
+}
+
+/* Emergency Image Styling */
+.message:has(.message-text:contains("🚨 EMERGENCY ALERT")) .message-image {
+    border-color: #dc2626;
+    box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.3);
+}
+
+.message:has(.message-text:contains("🚨 EMERGENCY ALERT")) .message-image:hover {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.5), 0 8px 25px rgba(220, 38, 38, 0.3);
+}
+
+/* Zoom and Pan functionality hint */
+.image-container img {
+    cursor: zoom-in;
+}
+
+.image-container.zoomed img {
+    cursor: grab;
+}
+
+.image-container.zoomed img:active {
+    cursor: grabbing;
+}
+
+/* Loading state for images */
+.message-image.loading {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Zoom Controls */
+.zoom-controls {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 15px;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    z-index: 10;
+}
+
+.zoom-controls button {
+    background: #4b5563;
+    border: none;
+    color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.zoom-controls button:hover {
+    background: #6b7280;
+    transform: scale(1.1);
+}
+
+.zoom-controls span {
+    color: white;
+    font-weight: 600;
+    min-width: 50px;
+    text-align: center;
+}

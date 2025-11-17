@@ -1,0 +1,283 @@
+/* ========== Logo Styles ========== */
+/* Fixed Header Logo */
+.logo-container {
+  position: fixed;
+  top: 1.5rem;
+  left: 2rem;
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+  mix-blend-mode: multiply;
+  animation: logoFadeIn 1s ease-out forwards;
+}
+
+.logo-img {
+  height: 40px;
+  width: auto;
+  transition: all 0.4s ease;
+  animation: logoPulse 3s ease-in-out infinite;
+}
+
+.logo-text {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, var(--primary-color), #6C5BFF);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  opacity: 0.9;
+}
+
+/* Massive Hero Logo */
+.massive-logo-wrapper {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  padding: 3rem 0;
+  background: linear-gradient(135deg, #f9f6ff 0%, #ffffff 100%);
+  position: relative;
+  overflow: hidden;
+  margin-top: 130px;
+  left:25%;
+}
+
+.massive-logo-img {
+  height: 240px;
+  width: auto;
+  border-radius: 35px;
+  box-shadow: 0 15px 50px rgba(138, 79, 255, 0.25);
+  transform-style: preserve-3d;
+  animation: 
+    logoEntrance 1.5s ease-out,
+    logoFloat 8s ease-in-out infinite,
+    logoGlow 5s ease-in-out infinite;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 2;
+}
+
+/* Background Effect */
+.massive-logo-wrapper::after {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, 
+    rgba(178, 228, 213, 0.1) 0%, 
+    rgba(138, 79, 255, 0.05) 50%,
+    transparent 100%);
+  animation: bgRotate 20s linear infinite;
+}
+
+/* Enhanced Hover Effects */
+.logo-img:hover {
+  transform: 
+    scale(1.08)
+    rotateZ(-2deg)
+    translateY(-10px);
+  box-shadow: 
+    0 25px 60px rgba(138, 79, 255, 0.4),
+    0 0 60px rgba(178, 228, 213, 0.3);
+}
+
+/* Animations */
+@keyframes logoEntrance {
+  0% {
+    opacity: 0;
+    transform: 
+      scale(0.7)
+      translateY(80px)
+      rotateX(45deg)
+      rotateZ(-15deg);
+  }
+  100% {
+    opacity: 1;
+    transform: 
+      scale(1)
+      translateY(0)
+      rotateX(0)
+      rotateZ(0);
+  }
+}
+
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-25px); }
+}
+
+@keyframes logoGlow {
+  0%, 100% { filter: drop-shadow(0 8px 25px rgba(138, 79, 255, 0.3)); }
+  50% { filter: drop-shadow(0 8px 35px rgba(138, 79, 255, 0.4)); }
+}
+
+@keyframes bgRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes logoPulse {
+  0%, 100% { 
+    transform: scale(1) rotate(0deg);
+    opacity: 0.9;
+  }
+  50% { 
+    transform: scale(1.05) rotate(-2deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 8px rgba(138, 79, 255, 0.3));
+  }
+}
+
+@keyframes logoFadeIn {
+  from { 
+    opacity: 0;
+    transform: translateX(-20px) scale(0.95);
+  }
+  to { 
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Dark Mode Adjustments */
+body.dark-mode .logo-img {
+  box-shadow: 
+    0 15px 50px rgba(138, 79, 255, 0.4),
+    0 0 60px rgba(178, 228, 213, 0.2);
+}
+
+body.dark-mode .massive-logo-wrapper::after {
+  background: radial-gradient(circle, 
+    rgba(178, 228, 213, 0.15) 0%, 
+    rgba(138, 79, 255, 0.1) 50%,
+    transparent 100%);
+}
+
+body.dark-mode .logo-container {
+  mix-blend-mode: normal;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .massive-logo-img {
+    height: 200px;
+  }
+}
+
+@media (max-width: 992px) {
+  .massive-logo-img {
+    height: 180px;
+    border-radius: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo-container {
+    left: 1rem;
+    top: 1rem;
+  }
+  
+  .logo-img {
+    height: 35px;
+  }
+
+  .logo-text {
+    font-size: 1.4rem;
+  }
+
+  .massive-logo-img {
+    height: 160px;
+    border-radius: 25px;
+  }
+  
+  .massive-logo-wrapper {
+    padding: 2.5rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .massive-logo-img {
+    height: 140px;
+    border-radius: 20px;
+  }
+  
+  .massive-logo-wrapper {
+    padding: 2rem 0;
+  }
+}
+
+
+/* /* Logo Styles *
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.logo-img {
+  height: 40px;
+  width: auto;
+  transition: all 0.4s ease;
+  animation: logoPulse 3s ease-in-out infinite;
+}
+
+.logo-text {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, var(--primary-color), #6C5BFF);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+  opacity: 0.9;
+}
+
+/* Logo Animations *
+@keyframes logoPulse {
+  0%, 100% { 
+    transform: scale(1) rotate(0deg);
+    opacity: 0.9;
+  }
+  50% { 
+    transform: scale(1.05) rotate(-2deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 8px rgba(138, 79, 255, 0.3));
+  }
+}
+
+.logo-container:hover .logo-img {
+  animation: logoFloat 1.2s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.logo-container:hover .logo-text {
+  background: linear-gradient(45deg, #6C5BFF, var(--secondary-color));
+  animation: textGlow 1.5s ease-in-out infinite;
+}
+
+@keyframes textGlow {
+  0%, 100% { opacity: 0.9; }
+  50% { opacity: 1; text-shadow: 0 0 15px rgba(108, 91, 255, 0.4); }
+}
+
+/* Fade-in Animation for Logo *
+@keyframes logoFadeIn {
+  from { 
+    opacity: 0;
+    transform: translateX(-20px) scale(0.95);
+  }
+  to { 
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+.logo-container {
+  animation: logoFadeIn 1s ease-out forwards;
+} */

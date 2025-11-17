@@ -1,0 +1,17 @@
+/*  Bubble */
+.notification-bubble {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: var(--secondary-color);
+  color: white;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-left: 0.5rem;
+  /* Add these new properties */
+  position: relative;
+  top: -1px;
+  line-height: 20px;
+  text-align: center;
+}

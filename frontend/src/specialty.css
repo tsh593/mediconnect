@@ -1,0 +1,369 @@
+/* Specialties Grid */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.medical-specialties {
+    padding: 4rem 0;
+    background: white;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    background: linear-gradient(90deg, #3B82F6, #8B5CF6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradientShift 8s ease infinite;
+    background-size: 200% 200%;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #64748B;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.specialties-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+    align-items: stretch;
+}
+
+.specialty-card {
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 490px;
+    position: relative;
+    overflow: hidden;
+    opacity: 1 !important;
+    display: block !important;
+    animation: fadeInUp 0.5s ease forwards;
+    background: white;
+    isolation: isolate;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Define CSS variables for each specialty */
+.specialty-general-medicine {
+    --border-color: #3B82F6;
+    --button-color: #3B82F6;
+}
+
+.specialty-radiology {
+    --border-color: #475569;
+    --button-color: #475569;
+}
+
+.specialty-cardiology {
+    --border-color: #EF4444;
+    --button-color: #EF4444;
+}
+
+.specialty-neurology {
+    --border-color: #8B5CF6;
+    --button-color: #8B5CF6;
+}
+
+.specialty-oncology {
+    --border-color: #9333EA;
+    --button-color: #9333EA;
+}
+
+.specialty-pediatrics {
+    --border-color: #F59E0B;
+    --button-color: #F59E0B;
+}
+
+.specialty-orthopedics {
+    --border-color: #6B7280;
+    --button-color: #6B7280;
+}
+
+.specialty-dermatology {
+    --border-color: #EC4899;
+    --button-color: #EC4899;
+}
+
+.specialty-gastroenterology {
+    --border-color: #10B981;
+    --button-color: #10B981;
+}
+
+.specialty-endocrinology {
+    --border-color: #F59E0B;
+    --button-color: #F59E0B;
+}
+
+.specialty-pulmonology {
+    --border-color: #3B82F6;
+    --button-color: #3B82F6;
+}
+
+.specialty-nephrology {
+    --border-color: #10B981;
+    --button-color: #10B981;
+}
+
+.specialty-hematology {
+    --border-color: #DC2626;
+    --button-color: #DC2626;
+}
+
+.specialty-rheumatology {
+    --border-color: #8B5CF6;
+    --button-color: #8B5CF6;
+}
+
+.specialty-infectious-diseases {
+    --border-color: #9333EA;
+    --button-color: #9333EA;
+}
+
+.specialty-emergency-medicine {
+    --border-color: #DC2626;
+    --button-color: #DC2626;
+}
+
+.specialty-family-medicine {
+    --border-color: #3B82F6;
+    --button-color: #3B82F6;
+}
+
+.specialty-psychiatry {
+    --border-color: #10B981;
+    --button-color: #10B981;
+}
+
+.specialty-obstetrics-gynecology {
+    --border-color: #EC4899;
+    --button-color: #EC4899;
+}
+
+.specialty-urology {
+    --border-color: #3F51B5;
+    --button-color: #3F51B5;
+}
+
+.specialty-ophthalmology {
+    --border-color: #6366F1;
+    --button-color: #6366F1;
+}
+
+.specialty-otolaryngology {
+    --border-color: #6B7280;
+    --button-color: #6B7280;
+}
+
+.specialty-anesthesiology {
+    --border-color: #8B5CF6;
+    --button-color: #8B5CF6;
+}
+
+.specialty-pathology {
+    --border-color: #475569;
+    --button-color: #475569;
+}
+
+.specialty-surgery {
+    --border-color: #DC2626;
+    --button-color: #DC2626;
+}
+
+/* Colored left border */
+.specialty-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+    background-color: var(--border-color, #4f46e5); /* Fallback color */
+    border-radius: 16px 0 0 16px;
+    transition: all 0.3s ease;
+}
+
+.specialty-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.specialty-card:hover::before {
+    width: 8px;
+}
+
+.specialty-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.specialty-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--border-color, #4f46e5); /* Fallback color */
+    transition: transform 0.3s ease;
+}
+
+.specialty-card:hover .specialty-icon {
+    transform: scale(1.1);
+}
+
+.specialty-description {
+    color: #64748B;
+    margin: 1rem 0;
+    min-height: 3em;
+    transition: color 0.3s ease;
+    flex-grow: 1;
+}
+
+.specialty-card:hover .specialty-description {
+    color: #334155;
+}
+
+.specialty-cases {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.case-tag {
+    background: #f1f5f9;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: #334155;
+    display: inline-block;
+    margin: 0.2rem;
+    transition: all 0.3s ease;
+}
+
+.specialty-card:hover .case-tag {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.specialty-btn-container {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    right: 2rem;
+}
+
+.specialty-btn {
+    width: 100%;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    background-color: var(--button-color, #4f46e5); /* Fallback color */
+    color: white;
+    position: relative;
+    z-index: 1;
+    filter: brightness(0.9);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.specialty-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.3));
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.specialty-btn:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+.specialty-btn:hover::after {
+    transform: translateY(0);
+}
+
+/* Animation classes */
+.hidden {
+    opacity: 0;
+}
+
+.show {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.stagger {
+    animation-delay: calc(var(--delay) * 0.2s);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .specialties-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+
+    .specialty-card {
+        min-height: 340px;
+    }
+}
+
+@media (max-width: 480px) {
+    .specialties-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+/* Ensure specialty cards are not affected by AI chat modal */
+.medical-specialties {
+    position: relative;
+    z-index: 1;
+}
+
+.specialty-card {
+    position: relative;
+    z-index: 1;
+}

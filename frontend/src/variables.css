@@ -1,0 +1,15 @@
+:root {
+  --lavender: #8A4FFF;
+  --lavender-dark: #6C3FCC;
+  --lavender-light: #f3eeff;
+  --sage: #6C9D8F;
+  --sage-dark: #5A8A7D;
+  --white: #FFFFFF;
+  --gray-100: #F7FAFC;
+  --gray-200: #EDF2F7;
+  --gray-300: #E2E8F0;
+  --gray-400: #CBD5E0;
+  --gray-500: #A0AEC0;
+  --gray-600: #718096;
+  --emergency: #E53E3E;
+}

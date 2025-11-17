@@ -1,0 +1,10 @@
+Duplicate NPIs:
+- 1003000126: 2 entries found
+
+Entries with Missing Critical Data:
+- NPI: 1003001829 (Missing Provider Last Name, Provider First Name)
+- NPI: 1003001819 (Missing Facility Name)
+- NPI: 1003002404 (Missing ZIP Code)
+- Enter any additional entries here as needed.
+
+Total Entries Analyzed: 100

@@ -1,0 +1,168 @@
+/* ===== LAVENDER FOOTER ===== */
+footer {
+  background: linear-gradient(135deg, #1e1b4b 0%, #5b21b6 100%);
+  color: white;
+  padding: 4rem 2rem 0;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(168, 85, 247, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(34, 197, 94, 0.08) 0%, transparent 50%);
+  z-index: 0;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-logo {
+  height: 60px;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.5));
+  transition: all 0.5s ease;
+}
+
+.animate-pulse {
+  animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.9; }
+  50% { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 0.9; }
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.link-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.link-group h4 {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  color: #e9d5ff;
+}
+
+.link-group h4::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, #a855f7, #d8b4fe);
+  border-radius: 3px;
+}
+
+.link-group a {
+  color: #d8b4fe;
+  margin-bottom: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  padding-left: 0.5rem;
+}
+
+.link-group a:hover {
+  color: white;
+  transform: translateX(5px);
+}
+
+.link-group a::before {
+  content: "→";
+  position: absolute;
+  left: -15px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  color: #a855f7;
+}
+
+.link-group a:hover::before {
+  left: -10px;
+  opacity: 1;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 3rem auto 0;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(168, 85, 247, 0.2);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  color: #c4b5fd;
+  font-size: 0.9rem;
+}
+
+/* Floating Elements */
+footer::after {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-links {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .footer-logo {
+    margin: 0 auto 2rem;
+  }
+  
+  .link-group {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .link-group h4::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* Glow Effect on Hover */
+.footer-logo:hover {
+  filter: drop-shadow(0 0 15px rgba(168, 85, 247, 0.8));
+  transform: rotate(-5deg) scale(1.1);
+}

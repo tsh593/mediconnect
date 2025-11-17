@@ -1,0 +1,663 @@
+/* Full Screen AI Chat Modal - Scoped Styles */
+.ai-chat-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.ai-chat-modal .ai-chat-content {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.ai-chat-modal .ai-chat-header {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    color: white;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+    flex-shrink: 0;
+}
+
+.ai-chat-modal .ai-chat-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.ai-chat-modal .ai-icon {
+    font-size: 1.75rem;
+}
+
+.ai-chat-modal .ai-badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.ai-chat-modal .close-ai-chat {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.75rem;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ai-chat-modal .close-ai-chat:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.ai-chat-modal .ai-disclaimer {
+    background: #fef3c7;
+    border: 1px solid #f59e0b;
+    color: #92400e;
+    padding: 16px 24px;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    margin: 0 24px 24px;
+    line-height: 1.5;
+    flex-shrink: 0;
+}
+
+/* Main content area - takes remaining space */
+.ai-chat-modal .ai-chat-main {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    padding: 0 24px 24px;
+    gap: 24px;
+}
+
+/* Patient info sidebar */
+.ai-chat-modal .patient-info-section {
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    width: 300px;
+    flex-shrink: 0;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.ai-chat-modal .patient-info-section h4 {
+    color: #1e293b;
+    margin-bottom: 20px;
+    font-size: 1.25rem;
+    border-bottom: 2px solid #4f46e5;
+    padding-bottom: 8px;
+}
+
+.ai-chat-modal .patient-info-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.ai-chat-modal .info-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.ai-chat-modal .info-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+.ai-chat-modal .info-group input,
+.ai-chat-modal .info-group select {
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.ai-chat-modal .info-group input:focus,
+.ai-chat-modal .info-group select:focus {
+    outline: none;
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.ai-chat-modal .full-width {
+    grid-column: 1 / -1;
+}
+
+/* Messages area - takes remaining width */
+.ai-chat-modal .ai-messages-container {
+    flex: 1;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 24px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Enhanced message styling for full screen */
+.ai-chat-modal .ai-message {
+    max-width: 90%;
+    animation: slideIn 0.3s ease-out;
+}
+
+.ai-chat-modal .user-message {
+    align-self: flex-end;
+}
+
+.ai-chat-modal .ai-response {
+    align-self: flex-start;
+}
+
+.ai-chat-modal .ai-message-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+.ai-chat-modal .message-icon {
+    font-size: 1.1rem;
+}
+
+.ai-chat-modal .message-sender {
+    font-weight: 600;
+    color: #374151;
+}
+
+.ai-chat-modal .message-time {
+    margin-left: auto;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+.ai-chat-modal .ai-message-content {
+    padding: 20px;
+    border-radius: 12px;
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.ai-chat-modal .user-message .ai-message-content {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    color: white;
+    border-bottom-right-radius: 4px;
+}
+
+.ai-chat-modal .ai-response .ai-message-content {
+    background: white;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-bottom-left-radius: 4px;
+}
+
+/* Enhanced medical response for full screen - FIXED BULLET POINTS */
+.ai-chat-modal .medical-response {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+.ai-chat-modal .medical-response h1 {
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: #1e293b;
+    border-bottom: 3px solid #4f46e5;
+    padding-bottom: 0.5rem;
+}
+
+.ai-chat-modal .medical-response h2 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #4f46e5;
+}
+
+.ai-chat-modal .medical-response h3 {
+    font-size: 1.25rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: #7c3aed;
+}
+
+.ai-chat-modal .medical-response h4 {
+    font-size: 1.1rem;
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: #1e293b;
+}
+
+.ai-chat-modal .medical-response p {
+    margin-bottom: 1.25rem;
+    color: #374151;
+    font-size: 1rem;
+}
+
+/* FIXED: Proper list formatting for markdown */
+.ai-chat-modal .medical-response ul,
+.ai-chat-modal .medical-response ol {
+    margin-bottom: 1.25rem;
+    padding-left: 2em;
+    display: block;
+}
+
+.ai-chat-modal .medical-response li {
+    display: list-item;
+    margin-bottom: 0.75em;
+    color: #475569;
+    font-size: 1rem;
+    line-height: 1.6;
+    padding-left: 0.5em;
+}
+
+/* Ensure unordered lists show proper bullets */
+.ai-chat-modal .medical-response ul {
+    list-style-type: disc;
+}
+
+.ai-chat-modal .medical-response ul li {
+    list-style-type: disc;
+    list-style-position: outside;
+    display: list-item;
+}
+
+/* Ensure ordered lists show numbers */
+.ai-chat-modal .medical-response ol {
+    list-style-type: decimal;
+}
+
+.ai-chat-modal .medical-response ol li {
+    list-style-type: decimal;
+    list-style-position: outside;
+    display: list-item;
+}
+
+/* Nested lists */
+.ai-chat-modal .medical-response ul ul,
+.ai-chat-modal .medical-response ol ol {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    padding-left: 2em;
+}
+
+.ai-chat-modal .medical-response ul ul {
+    list-style-type: circle;
+}
+
+.ai-chat-modal .medical-response ul ul li {
+    list-style-type: circle;
+}
+
+.ai-chat-modal .medical-response ol ol {
+    list-style-type: lower-alpha;
+}
+
+.ai-chat-modal .medical-response ol ol li {
+    list-style-type: lower-alpha;
+}
+
+/* CRITICAL FIX: Handle text-based bullet points (• characters) */
+.ai-chat-modal .medical-response p:has(> :first-child:contains("•")) {
+    margin-left: 2em;
+    text-indent: -1em;
+}
+
+/* Force line breaks for text that contains bullet characters */
+.ai-chat-modal .medical-response {
+    white-space: pre-line;
+}
+
+/* Specific fix for bullet points that are in paragraph text */
+.ai-chat-modal .medical-response p {
+    white-space: pre-line;
+}
+
+/* Target paragraphs that start with bullet characters */
+.ai-chat-modal .medical-response p:contains("•") {
+    display: block;
+    margin-bottom: 0.75em;
+    padding-left: 1.5em;
+    text-indent: -1.5em;
+}
+
+/* Alternative approach: Use JavaScript-like content parsing with CSS */
+.ai-chat-modal .medical-response {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Force bullet points to appear on new lines */
+.ai-chat-modal .medical-response br {
+    display: block;
+    content: "";
+    margin-bottom: 0.5em;
+}
+
+/* Input area at bottom */
+.ai-chat-modal .ai-input-container {
+    background: white;
+    padding: 24px;
+    border-top: 1px solid #e2e8f0;
+    flex-shrink: 0;
+}
+
+.ai-chat-modal .input-group {
+    display: flex;
+    gap: 12px;
+    align-items: flex-end;
+}
+
+.ai-chat-modal .input-group input {
+    flex: 1;
+    padding: 16px 20px;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.2s;
+    resize: none;
+    min-height: 60px;
+}
+
+.ai-chat-modal .input-group input:focus {
+    outline: none;
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.ai-chat-modal .ai-send-btn {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    color: white;
+    border: none;
+    padding: 16px 24px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-width: 120px;
+}
+
+.ai-chat-modal .ai-send-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
+}
+
+.ai-chat-modal .ai-send-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.ai-chat-modal .ai-chat-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+}
+
+/* Welcome message for full screen */
+.ai-chat-modal .ai-welcome-message {
+    text-align: center;
+    padding: 60px 40px;
+    color: #64748b;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.ai-chat-modal .welcome-icon {
+    font-size: 4rem;
+    color: #4f46e5;
+    margin-bottom: 24px;
+}
+
+.ai-chat-modal .ai-welcome-message h4 {
+    color: #1e293b;
+    margin-bottom: 16px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.ai-chat-modal .ai-welcome-message p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 32px;
+}
+
+.ai-chat-modal .example-prompts {
+    margin-top: 40px;
+    text-align: left;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ai-chat-modal .example-prompts strong {
+    display: block;
+    margin-bottom: 16px;
+    font-size: 1.1rem;
+    color: #1e293b;
+}
+
+.ai-chat-modal .example-prompts ul {
+    margin-top: 12px;
+    padding-left: 24px;
+}
+
+.ai-chat-modal .example-prompts li {
+    display: list-item;
+    list-style-type: disc;
+    list-style-position: outside;
+    margin-bottom: 12px;
+    color: #475569;
+    font-size: 1rem;
+    padding: 8px 0;
+    border-bottom: 1px solid #f1f5f9;
+    line-height: 1.5;
+}
+
+.ai-chat-modal .example-prompts li:last-child {
+    border-bottom: none;
+}
+
+/* Scrollbar styling for full screen */
+.ai-chat-modal .ai-messages-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.ai-chat-modal .ai-messages-container::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 4px;
+}
+
+.ai-chat-modal .ai-messages-container::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+.ai-chat-modal .ai-messages-container::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Standard scrollbar for Firefox */
+.ai-chat-modal .ai-messages-container {
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 1024px) {
+    .ai-chat-modal .ai-chat-main {
+        flex-direction: column;
+        padding: 0 16px 16px;
+    }
+
+    .ai-chat-modal .patient-info-section {
+        width: 100%;
+        max-height: 300px;
+    }
+
+    .ai-chat-modal .ai-messages-container {
+        min-height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .ai-chat-modal .ai-chat-header {
+        padding: 16px 20px;
+    }
+
+    .ai-chat-modal .ai-chat-title {
+        font-size: 1.25rem;
+    }
+
+    .ai-chat-modal .ai-disclaimer {
+        margin: 0 16px 16px;
+        padding: 12px 16px;
+    }
+
+    .ai-chat-modal .ai-messages-container {
+        padding: 16px;
+    }
+
+    .ai-chat-modal .ai-message {
+        max-width: 95%;
+    }
+
+    .ai-chat-modal .medical-response h1 {
+        font-size: 1.5rem;
+    }
+
+    .ai-chat-modal .medical-response h2 {
+        font-size: 1.25rem;
+    }
+}
+
+/* Animation for messages */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Error and loading states */
+.ai-chat-modal .error-message .ai-message-content {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #dc2626;
+}
+
+.ai-chat-modal .error-notice,
+.ai-chat-modal .fallback-notice {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    margin-top: 8px;
+    border-radius: 6px;
+    font-size: 0.875rem;
+}
+
+.ai-chat-modal .error-notice {
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+}
+
+.ai-chat-modal .fallback-notice {
+    background: #fffbeb;
+    color: #92400e;
+    border: 1px solid #fed7aa;
+}
+
+.ai-chat-modal .loading-message .ai-message-content {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    color: #64748b;
+    font-style: italic;
+}
+
+.ai-chat-modal .spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Add vendor prefixes for backdrop-filter */
+.glassmorphism-input {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Fix background-clip order - This is for the main app specialty cards */
+.specialty-card {
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid transparent;
+}
+
+/* Ensure specialty cards in main app are not affected by AI chat modal */
+.specialty-card,
+.learning-card,
+.feature-btn {
+    isolation: isolate;
+    position: relative;
+    z-index: 1;
+}
+
+/* Main app styles should not be affected by AI chat modal */
+.app {
+    position: relative;
+    z-index: 1;
+}
+
+/* When AI chat is open, ensure main content stays behind */
+.app:has(.ai-chat-modal) {
+    overflow: hidden;
+}

@@ -1,0 +1,632 @@
+/* supabase-integration.css */
+
+/* Auth Modal Styles */
+.auth-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.auth-content {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+}
+
+.close-auth {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: var(--gray-600);
+}
+
+.auth-content h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--lavender);
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.input-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray-500);
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: 1px solid var(--gray-300);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: var(--lavender);
+}
+
+.auth-submit-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--lavender);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.auth-submit-btn:hover {
+  background: var(--lavender-dark);
+}
+
+.auth-switch {
+  text-align: center;
+}
+
+.auth-switch p {
+  color: var(--gray-600);
+}
+
+.auth-switch button {
+  background: none;
+  border: none;
+  color: var(--lavender);
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.auth-error {
+  background: #FEE2E2;
+  color: #DC2626;
+  padding: 0.75rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+/* User Auth Container */
+.user-auth-container {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 1000;
+}
+
+.user-auth-btn, .user-profile-btn {
+  background: var(--sage);
+  color: var(--white);
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 25px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.user-auth-btn:hover, .user-profile-btn:hover {
+  background: var(--sage-dark);
+}
+
+/* Chat Modal Styles */
+.chat-modal {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 350px;
+  height: 500px;
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.chat-header {
+  background: var(--lavender);
+  color: var(--white);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-chat {
+  background: none;
+  border: none;
+  color: var(--white);
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.messages-container {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.message {
+  background: var(--gray-100);
+  padding: 0.75rem 1rem;
+  border-radius: 18px;
+  max-width: 80%;
+  align-self: flex-start;
+}
+
+.own-message {
+  background: var(--lavender-light);
+  align-self: flex-end;
+}
+
+.message-time {
+  font-size: 0.7rem;
+  color: var(--gray-500);
+  display: block;
+  margin-top: 0.25rem;
+}
+
+.message-image img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.message-location {
+  font-size: 0.8rem;
+  color: var(--gray-600);
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.message-input {
+  padding: 1rem;
+  border-top: 1px solid var(--gray-200);
+}
+
+.image-preview {
+  position: relative;
+  margin-bottom: 0.75rem;
+}
+
+.image-preview img {
+  max-width: 100%;
+  max-height: 120px;
+  border-radius: 8px;
+}
+
+.remove-image {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: rgba(0, 0, 0, 0.5);
+  color: var(--white);
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+
+.input-container {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.input-container input {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--gray-300);
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.input-container input:focus {
+  outline: none;
+  border-color: var(--lavender);
+}
+
+.image-upload-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: var(--lavender);
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.send-btn {
+  background: var(--lavender);
+  color: var(--white);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.send-btn:disabled {
+  background: var(--gray-400);
+  cursor: not-allowed;
+}
+
+/* Chat Toggle Button */
+.chat-toggle-btn {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--lavender);
+  color: var(--white);
+  border: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  cursor: pointer;
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+
+.chat-toggle-btn:hover {
+  transform: scale(1.1);
+  background: var(--lavender-dark);
+}
+
+.message-indicator {
+  position: absolute;
+  top: 0.25rem;
+  right: 0.25rem;
+  width: 10px;
+  height: 10px;
+  background: var(--emergency);
+  border-radius: 50%;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid var(--lavender);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Specialty-specific styles */
+.specialty-general-medicine {
+  --border-color: #3B82F6;
+  --button-color: #3B82F6;
+}
+
+.specialty-radiology {
+  --border-color: #475569;
+  --button-color: #475569;
+}
+
+.specialty-cardiology {
+  --border-color: #EF4444;
+  --button-color: #EF4444;
+}
+
+.specialty-neurology {
+  --border-color: #8B5CF6;
+  --button-color: #8B5CF6;
+}
+
+.specialty-oncology {
+  --border-color: #9333EA;
+  --button-color: #9333EA;
+}
+
+.specialty-pediatrics {
+  --border-color: #F59E0B;
+  --button-color: #F59E0B;
+}
+
+.specialty-orthopedics {
+  --border-color: #6B7280;
+  --button-color: #6B7280;
+}
+
+.specialty-dermatology {
+  --border-color: #EC4899;
+  --button-color: #EC4899;
+}
+
+.specialty-gastroenterology {
+  --border-color: #10B981;
+  --button-color: #10B981;
+}
+
+.specialty-endocrinology {
+  --border-color: #F59E0B;
+  --button-color: #F59E0B;
+}
+
+.specialty-pulmonology {
+  --border-color: #3B82F6;
+  --button-color: #3B82F6;
+}
+
+.specialty-nephrology {
+  --border-color: #10B981;
+  --button-color: #10B981;
+}
+
+.specialty-hematology {
+  --border-color: #DC2626;
+  --button-color: #DC2626;
+}
+
+.specialty-rheumatology {
+  --border-color: #8B5CF6;
+  --button-color: #8B5CF6;
+}
+
+.specialty-infectious-diseases {
+  --border-color: #9333EA;
+  --button-color: #9333EA;
+}
+
+.specialty-emergency-medicine {
+  --border-color: #DC2626;
+  --button-color: #DC2626;
+}
+
+.specialty-family-medicine {
+  --border-color: #3B82F6;
+  --button-color: #3B82F6;
+}
+
+.specialty-psychiatry {
+  --border-color: #10B981;
+  --button-color: #10B981;
+}
+
+.specialty-obstetrics-gynecology {
+  --border-color: #EC4899;
+  --button-color: #EC4899;
+}
+
+.specialty-urology {
+  --border-color: #3F51B5;
+  --button-color: #3F51B5;
+}
+
+.specialty-ophthalmology {
+  --border-color: #6366F1;
+  --button-color: #6366F1;
+}
+
+.specialty-otolaryngology {
+  --border-color: #6B7280;
+  --button-color: #6B7280;
+}
+
+.specialty-anesthesiology {
+  --border-color: #8B5CF6;
+  --button-color: #8B5CF6;
+}
+
+.specialty-pathology {
+  --border-color: #475569;
+  --button-color: #475569;
+}
+
+.specialty-surgery {
+  --border-color: #DC2626;
+  --button-color: #DC2626;
+}
+
+/* Icon colors */
+.icon-general-medicine {
+  color: #3B82F6;
+}
+
+.icon-radiology {
+  color: #475569;
+}
+
+.icon-cardiology {
+  color: #EF4444;
+}
+
+.icon-neurology {
+  color: #8B5CF6;
+}
+
+.icon-oncology {
+  color: #9333EA;
+}
+
+.icon-pediatrics {
+  color: #F59E0B;
+}
+
+.icon-orthopedics {
+  color: #6B7280;
+}
+
+.icon-dermatology {
+  color: #EC4899;
+}
+
+.icon-gastroenterology {
+  color: #10B981;
+}
+
+.icon-endocrinology {
+  color: #F59E0B;
+}
+
+.icon-pulmonology {
+  color: #3B82F6;
+}
+
+.icon-nephrology {
+  color: #10B981;
+}
+
+.icon-hematology {
+  color: #DC2626;
+}
+
+.icon-rheumatology {
+  color: #8B5CF6;
+}
+
+.icon-infectious-diseases {
+  color: #9333EA;
+}
+
+.icon-emergency-medicine {
+  color: #DC2626;
+}
+
+.icon-family-medicine {
+  color: #3B82F6;
+}
+
+.icon-psychiatry {
+  color: #10B981;
+}
+
+.icon-obstetrics-gynecology {
+  color: #EC4899;
+}
+
+.icon-urology {
+  color: #3F51B5;
+}
+
+.icon-ophthalmology {
+  color: #6366F1;
+}
+
+.icon-otolaryngology {
+  color: #6B7280;
+}
+
+.icon-anesthesiology {
+  color: #8B5CF6;
+}
+
+.icon-pathology {
+  color: #475569;
+}
+
+.icon-surgery {
+  color: #DC2626;
+}
+
+/* Utility Classes */
+.hover-text-lavender-dark:hover {
+  color: var(--lavender-dark);
+}
+
+.hover-scale-105:hover {
+  transform: scale(1.05);
+}
+
+.hover-scale-102:hover {
+  transform: scale(1.02);
+}
+
+.hover-bg-opacity-90:hover {
+  opacity: 0.9;
+}
+
+.hover-translate-y-0_5:hover {
+  transform: translateY(-0.5rem);
+}
+
+.hero-image-radius {
+  border-radius: 20px;
+}
+
+.transition-transform-duration-300 {
+  transition: transform 300ms;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .chat-modal {
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    right: 0;
+    border-radius: 0;
+  }
+  
+  .user-auth-container {
+    top: 1rem;
+    right: 1rem;
+  }
+  
+  .chat-toggle-btn {
+    bottom: 1rem;
+    right: 1rem;
+  }
+  
+  .auth-content {
+    padding: 1.5rem;
+  }
+  
+  .user-auth-btn, .user-profile-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
